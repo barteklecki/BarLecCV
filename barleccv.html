@@ -5,7 +5,9 @@
         <title> BarLec CV </title>
         <!-- CSS -- <link rel="stylesheet" type="text/css" href="           .css">-->
         <style>
-            body {
+            main {
+                width: 100%;
+                height: 100%;
                 background-color: aquamarine;
                 background-image: linear-gradient(45deg, #7fffd4, #43ddaa, #b0ffe5);
                 /* font-family:  Helvetica, Arial, sans-serif; */
@@ -21,28 +23,30 @@
                 margin-bottom: 0.2em
             }
             
-            address {
-                font-style: normal;
-                font-weight: normal;
-                top: 100px;
-                left: 350px;
-            }
 
             aside {
                 position: relative;
+                z-index: auto;
                 text-align: center;
                 top:    50px;
                 width:  500px;
-                height: 500px;
-                filter: blur(0px);
+                height: 500px;  
+                transition: all 0.5s;  
             }
 
-            .avatar {
-                /* filter: blur(4px); */
-                opacity: 100%;
+            .idCard:hover ~ aside {
+                filter: blur(3px);
+                transition: all 0.5s;
             }
+
 
             .idCard {    /* id transparent binding */
+                position: relative;
+                z-index: 5;
+                font-style: normal;
+                font-weight: normal;
+                top: 480px;
+                left: 160px;
                 position: absolute; 
                 padding: 25px;
                 padding-top: 15px;
@@ -54,23 +58,28 @@
                 box-shadow: gray;
                 font-weight:500;
                 transform-origin: top center;
-
-                animation-name: idSwing;
-                animation-duration: 1s;
-                animation-direction:alternate-reverse;
-                animation-timing-function: ease-in-out;
-                animation-iteration-count: infinite;
-                
+                transform: scale(0.3) rotate(-30deg);
+                transition: all 0.5s;
             }
             
             .idCard:hover {
-                transform: rotate(2deg);
+                top: 190px;
+                left: 280px;
+                transform: scale(1) rotate(2deg);
                 transition: all 0.5s;
-                animation-play-state: paused;
+                animation-name: idSwing;
+                animation-direction:alternate-reverse;
+                animation-duration: 1s;
+                animation-play-state: running;
+                animation-delay: 0.6s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                
             }
 
-            .idCard:hover + aside {
-                filter: blur(2px);
+            .idCard:active {
+                transform: scale(0.95);
+                transition: all 0.5s;
             }
             
             .idCard > div:first-child { /* id top hole */
@@ -188,7 +197,6 @@
             address a:hover {
                 background-color: #4444eb;
             }
-            
 
             address a:before {
                 color: #e9e9e9;
@@ -233,10 +241,10 @@
 
             @keyframes idSwing {
                 0% {
-                    transform: rotate(2deg);
+                    transform: rotate(-2deg);
                 }
                 100% {
-                    transform: rotate(-2deg);
+                    transform: rotate(2deg);
                 }
 
             }
@@ -259,7 +267,26 @@
                     </main>
                 </div>
             </article>
-            <aside class="avatar">
+            <address class="idCard"><!-- personal info card in form of id -->
+                <div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+                    <p>first name:</p><p>Bartosz</p>
+                    <p>last name:</p><p>Łęcki</p>
+                    <p>date of birth:</p><p>1986</p>
+                    <p>nationality:</p><p>polish</p>
+                    <p>telephone:</p><p>+48 601 885 101</p>
+                    <p>e-mail:</p><p>leckibartek@gmail.com</p>
+                    <p>networking:</p>
+                    <a href="mailto:leckibartek@gmail.com">GMail</a>
+                    <a href="https://www.linkedin.com/in/lecki/">LinkedIn</a>
+                    <a href="https://github.com/barteklecki">Github</a>
+                </div>
+            </address>
+            <aside id="avatar">
                 <svg id="hexatar-preview" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <g id="hexatar-bodies">
                         <g id="hexatar-body">
@@ -332,25 +359,6 @@
                     </g>
                     <desc>Avatar generated from Hexatar.com - created with Snap</desc><text transform="matrix(1 0 0 1 0 528)" font-size="12">Avatar generated from Hexatar.com</text></svg>
             </aside>
-            <address class="idCard"><!-- personal info card in form of id -->
-                <div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div>
-                    <p>first name:</p><p>Bartosz</p>
-                    <p>last name:</p><p>Łęcki</p>
-                    <p>date of birth:</p><p>1986</p>
-                    <p>nationality:</p><p> polish</p>
-                    <p>telephone:</p><p>+48 601 885 101</p>
-                    <p>e-mail:</p><p>leckibartek@gmail.com</p>
-                    <p>networking:</p>
-                    <a href="mailto:leckibartek@gmail.com">GMail</a>
-                    <a href="https://www.linkedin.com/in/lecki/">LinkedIn</a>
-                    <a href="https://github.com/barteklecki">Github</a>
-                </div>
-            </address>
         </main>
         <footer>
                 <!-- web footer -->
