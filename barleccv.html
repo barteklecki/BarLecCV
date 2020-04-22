@@ -60,6 +60,13 @@
                 transform-origin: top center;
                 transform: scale(0.3) rotate(-30deg);
                 transition: all 0.5s;
+                animation-name: idSwingP;
+                animation-direction:alternate-reverse;
+                animation-duration: 1s;
+                animation-play-state: running;
+                animation-delay: 0.6s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
             }
             
             .idCard:hover {
@@ -241,12 +248,137 @@
 
             @keyframes idSwing {
                 0% {
-                    transform: rotate(-2deg);
+                    transform: scale(1) rotate(-2deg);
                 }
                 100% {
-                    transform: rotate(2deg);
+                    transform: scale(1) rotate(2deg);
                 }
 
+            }
+            
+            @keyframes idSwingP {
+                0% {
+                    transform: scale(0.3) rotate(-31deg);
+                }
+                100% {
+                    transform: scale(0.3) rotate(-29deg);
+                }
+
+            }
+
+            .skills {
+                position: absolute;
+                z-index: 6;
+                top: 5px;
+                left: 200px;
+                width: 400px;
+                height: 400px;
+                border-width: 3px;
+                border-style: solid;
+                border-color: red;
+            }
+
+            .brands div {
+                position: relative;
+                visibility: hidden;
+                z-index: 8;
+                top: -50px;
+                left: -100px;
+                width: 50px;
+                height: 50px;
+                border-width: 3px;
+                border-style: solid;
+                border-color: blue;
+                transform-origin: left center;
+                transform: rotate(-180deg);
+            }
+
+            .brands div:nth-of-type(1) {
+                color: lightskyblue;
+            }
+
+            .brands div:nth-of-type(2) {
+                color: green;
+            }
+
+            .brands div:nth-of-type(3) {
+                color: yellow;
+            }
+
+            .skills:hover .brands div {
+                visibility: visible;
+            }
+
+            .skills:hover .brands div:nth-of-type(3){
+                background-color: teal;
+                animation-name: brandsFly;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-direction: initial;
+                animation-fill-mode: forwards;
+                animation-delay: 0s;
+                transform: rotate(6deg);
+                transition: all 1s;
+            }
+
+            .skills:hover .brands div:nth-of-type(2){
+                background-color: violet;
+                animation-name: brandsFly;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-direction: initial;
+                animation-fill-mode: forwards;
+                animation-delay: 0.2s;
+                transform: rotate(4deg);
+                transition: all 1s;
+            }
+
+            .skills:hover .brands div:nth-of-type(1){
+                background-color: lavender;
+                animation-name: brandsFly;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-direction: initial;
+                animation-fill-mode: forwards;
+                animation-delay: 0.4s;
+                transform: rotate(2deg);
+                transition: all 1s;
+            }
+
+
+            @keyframes brandsFly {
+                0% {
+                    left: 50px;
+                    top: 150px;
+                }
+                20% {
+                    left: 50px;
+                    top: 60px;
+                }
+                30% {
+                    left: 50px;
+                    top: 40px;
+                }
+                40% {
+                    left: 100px;
+                    top: 20px;
+                }
+                50% {
+                    left: 150px;
+                    top: 20px;
+                }
+                60% {
+                    left: 170px;
+                    top: 40px;                 
+                }
+                60% {
+                    left: 200px;
+                    top: 60px;
+                }
+                100% {
+                    left: 200px;
+                    top: 300px;
+                }
             }
 
         </style>
@@ -260,13 +392,6 @@
             </nav>
         </header>
         <main>
-            <article>
-                <div>
-                    <main>
-                        <!-- main content -->
-                    </main>
-                </div>
-            </article>
             <address class="idCard"><!-- personal info card in form of id -->
                 <div>
                     <div></div>
@@ -286,6 +411,15 @@
                     <a href="https://github.com/barteklecki">Github</a>
                 </div>
             </address>
+            <div class="skills"> <!-- tech-skills -->
+
+                <div class="brands"> <!--  patch -->
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+
+            </div>
             <aside id="avatar">
                 <svg id="hexatar-preview" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <g id="hexatar-bodies">
@@ -308,8 +442,8 @@
                         </g>
                     </g></g>
                         <g id="hexatar-face"><g class="hexatar-base">
-                        <polygon class="col-obj" style="fill:#FCE2E1;" points="256.005,7.17 153.605,71.355 153.605,291.893 216.444,386.05  248.348,386.05 296.385,386.05 358.404,291.893 358.404,71.355"></polygon>
-                        <polygon class="shadow-obj" style="fill: rgb(247, 181, 179);" points="256.006,7.17 256.005,386.05 264.637,386.05 296.385,386.05  358.404,291.893 358.405,71.355"></polygon>
+                        <polygon class="col-obj" style="fill:#FCE2E1;" points="256.005,71.17 153.605,71.355 153.605,291.893 216.444,386.05  248.348,386.05 296.385,386.05 358.404,291.893 358.404,71.355"></polygon>
+                        <polygon class="shadow-obj" style="fill: rgb(247, 181, 179);" points="256.006,71.17 256.005,386.05 264.637,386.05 296.385,386.05  358.404,291.893 358.405,71.355"></polygon>
                     </g></g>
                         <g id="hexatar-mouth"><g class="hexatar-base">
                         <polygon class="col-obj" style="fill: rgb(223, 144, 129);" points="220.382,311.877 292.295,311.877 267.146,328.877 245.531,328.877"></polygon>
@@ -351,8 +485,8 @@
                     </g></g>	
                         </g>
                         <g id="hexatar-hair-front"><g class="element-front">
-                            <polygon class="col-obj" style="fill: rgb(66, 66, 66);" points="256.211,6.901 153.602,71.356 153.602,175.3 172.515,175.3  172.515,72.492 256.211,118.851 339.49,73.22 339.49,175.3 358.402,175.3 358.403,71.356"></polygon>
-                            <polygon class="shadow-obj" style="opacity: 0.4; fill: rgb(40, 40, 40);" points="256.211,6.901 256.211,118.851 339.49,73.22 339.49,175.3  358.402,175.3 358.403,71.356"></polygon>
+                            <polygon class="col-obj" style="fill: rgb(66, 66, 66);" points="256.211,71.901 153.602,71.356 153.602,175.3 172.515,175.3  172.515,72.492 256.211,118.851 339.49,73.22 339.49,175.3 358.402,175.3 358.403,71.356"></polygon>
+                            <polygon class="shadow-obj" style="opacity: 0.4; fill: rgb(40, 40, 40);" points="256.211,71.901 256.211,118.851 339.49,73.22 339.49,175.3  358.402,175.3 358.403,71.356"></polygon>
                         </g></g>
                         <g id="hexatar-hat"></g>
                         <g id="hexatar-eyeglasses"></g>
